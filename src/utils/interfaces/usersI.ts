@@ -1,8 +1,11 @@
-export interface NewUser {
+export interface UserCheck {
   username: string,
+  password: string,
+}
+
+export interface NewUser extends UserCheck {
   vocation: string,
   level: number,
-  password: string,
 }
 
 export interface User extends NewUser {
