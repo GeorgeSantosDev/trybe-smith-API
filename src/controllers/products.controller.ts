@@ -15,4 +15,14 @@ export default class ProductsController {
       res.status(statusCodes.INTERNAL_ERROR).json({ messsage: `Ococrreu um erro: ${err}` });
     }
   };
+
+  public getAll = async (_req: Request, res: Response): Promise<void> => {
+    try {
+      const response = await this.productsService.getAll();
+
+      res.status(statusCodes.OK).json(response);
+    } catch (err) {
+      res.status(statusCodes.INTERNAL_ERROR).json({ messsage: `Ococrreu um erro: ${err}` });
+    }
+  };
 }
