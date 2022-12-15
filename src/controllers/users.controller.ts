@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import createToken from '../auth/jwt';
+import { createToken } from '../auth/jwt';
 import UsersService from '../services/users.service';
 import statusCodes from '../utils/statusCodes';
 
