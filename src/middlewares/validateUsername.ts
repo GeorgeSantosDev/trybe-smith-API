@@ -5,7 +5,7 @@ const MINIMUM_LENGTH = 3;
 
 export default class ValidateUsername {
   public validateUsername = (req: Request, res: Response, next: NextFunction): void | Response => {
-    if (!('name' in req.body)) {
+    if (!('username' in req.body)) {
       return res.status(statusCodes.BAD_REQUEST).json({ message: '"username" is required' });
     }
 
