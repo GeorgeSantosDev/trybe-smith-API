@@ -4,6 +4,7 @@ const statusCodes = {
   OK: 200,
   BAD_REQUEST: 400,
   UNAUTHORIZED: 401,
+  UNPROCESSABLE_ENTITY: 422,
 };
 
 export default statusCodes;
