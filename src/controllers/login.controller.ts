@@ -1,11 +1,8 @@
 import { Request, Response } from 'express';
-import createToken from '../auth/jwt';
-import LoginService from '../services/login.service';
+import { createToken } from '../auth/jwt';
 import statusCodes from '../utils/statusCodes';
 
 export default class LoginController {
-  constructor(private loginService = new LoginService()) { }
-
   public login = async (req: Request, res: Response): Promise<void> => {
     try {
       const { username, id } = req.body;
