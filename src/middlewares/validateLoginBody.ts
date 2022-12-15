@@ -5,7 +5,11 @@ import LoginService from '../services/login.service';
 export default class ValidateLoginBody {
   constructor(private loginService = new LoginService()) { }
 
-  public validateLoginBody = async (req: Request, res: Response, next: NextFunction) => {
+  public validateLoginBody = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void | Response> => {
     if (!('password' in req.body)) {
       return res.status(statusCodes.BAD_REQUEST).json({ message: '"password" is required' });
     }
