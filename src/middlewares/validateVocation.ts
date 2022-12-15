@@ -5,20 +5,20 @@ const MINIMUM_LENGTH = 3;
 
 export default class ValidateVocation {
   public validateVocation = (req: Request, res: Response, next: NextFunction): void | Response => {
-    if (!('vacation' in req.body)) {
-      return res.status(statusCodes.BAD_REQUEST).json({ message: '"vacation" is required' });
+    if (!('vocation' in req.body)) {
+      return res.status(statusCodes.BAD_REQUEST).json({ message: '"vocation" is required' });
     }
 
-    const { vacation } = req.body;
+    const { vocation } = req.body;
 
-    if (typeof vacation !== 'string') {
+    if (typeof vocation !== 'string') {
       return res.status(statusCodes.UNPROCESSABLE_ENTITY)
-        .json({ message: '"vacation" must be a string' });
+        .json({ message: '"vocation" must be a string' });
     }
 
-    if (vacation.length < MINIMUM_LENGTH) {
+    if (vocation.length < MINIMUM_LENGTH) {
       return res.status(statusCodes.UNPROCESSABLE_ENTITY)
-        .json({ message: '"vacation" length must be at least 3 characters long' });
+        .json({ message: '"vocation" length must be at least 3 characters long' });
     }
 
     next();
