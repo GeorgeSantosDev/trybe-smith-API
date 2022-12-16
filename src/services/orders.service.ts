@@ -1,6 +1,6 @@
 import connection from '../models/connection';
 import OrdersModel from '../models/orders.model';
-import { Order } from '../utils/interfaces/ordersI';
+import { NewOrder, Order } from '../utils/interfaces/ordersI';
 
 export default class OrdersService {
   public model: OrdersModel;
@@ -11,6 +11,12 @@ export default class OrdersService {
 
   public async getAll(): Promise<Order[]> {
     const response = await this.model.getAll();
+    
+    return response;
+  }
+
+  public async create(order: NewOrder): Promise<number> {
+    const response = await this.model.create(order);
     
     return response;
   } 
