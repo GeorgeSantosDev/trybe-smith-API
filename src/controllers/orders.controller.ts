@@ -14,4 +14,16 @@ export default class OrdersController {
       res.status(statusCodes.INTERNAL_ERROR).json({ messsage: `Ococrreu um erro: ${err}` });
     }
   };
+
+  public create = async (req: Request, res: Response): Promise<Response | void> => {
+    try {
+      const { productsIds, token: { data: { id: userId } } } = req.body;
+
+      const response = await this.ordersService.create({ productsIds, userId });
+
+      if (response) return res.status(statusCodes.CREATED).json({ productsIds, userId });
+    } catch (err) {
+      res.status(statusCodes.INTERNAL_ERROR).json({ messsage: `Ococrreu um erro: ${err}` });
+    }
+  };
 }
