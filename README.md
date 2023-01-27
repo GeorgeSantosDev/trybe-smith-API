@@ -212,8 +212,8 @@
 <p>
   Make sure that all containers are up and the ports 3000, 3006 and 33060 of your computer are available
 </p>
-</br>
 
+<br />
 <br />
 <br /> 
 
